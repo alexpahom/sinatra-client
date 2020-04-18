@@ -5,19 +5,8 @@ API_HOST = 'http://localhost:4568'
 
 get '/' do
   response = HTTParty.get("#{API_HOST}/api/v1/todos")
-  @tasks = {
-      open: [],
-      progress: [],
-      close: []
-  }
   if response.success?
-    # TODO: refactor
-    parsed_records = JSON.parse response.body
-    %w(open progress close).each do |status|
-      parsed_records.each do |task|
-        @tasks[status.to_sym] << task if task['status'] == status
-      end
-    end
+    @tasks = JSON.parse response.body
   else
     status response.code
   end
