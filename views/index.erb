@@ -3,46 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <link href="/css/main.css" rel="stylesheet" type="text/css">
+
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+  <script src="/js/main.js"></script>
   <title>Todo PAD</title>
 </head>
 <body>
-<div class="ui">
-  <nav class="navbar app">App bar</nav>
-  <nav class="navbar board">Board bar</nav>
-  <div class="lists">
-    <div class="list">
-      <header>To Do</header>
-      <ul>
-        <% @tasks['open'].each do |task| %>
-          <li><%= task['title'] %></li>
-        <% end %>
-      </ul>
-      <footer><a data-toggle="modal" data-target="#exampleModalLong" href="#">Add a card</a></footer>
+<div class="content">
+    <div id="flash_holder">
+      <div class="alert alert-success alert-dismissible fade show">
+        Success stub!
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
     </div>
-    <div class="list">
-      <header>In Progress</header>
-      <ul>
-        <% @tasks['progress'].each do |task| %>
-          <li><%= task['title'] %></li>
-        <% end %>
-      </ul>
-      <footer>Add a card...</footer>
-    </div>
-    <div class="list">
-      <header>Done</header>
-      <ul>
-        <% @tasks['close'].each do |task| %>
-          <li><%= task['title'] %></li>
-        <% end %>
-      </ul>
-      <footer>Add a card...</footer>
+  <div class="ui">
+    <nav class="navbar app">App bar</nav>
+    <nav class="navbar board">Board bar</nav>
+    <div class="lists">
+      <div class="list">
+        <header>To Do</header>
+        <ul>
+          <% @tasks['open'].each do |task| %>
+            <li>
+              <div class="title"><%= task['title'] %></div>
+              <div class="description" hidden><%= task['description'] %></div>
+              <div class="rank" hidden><%= task['rank'] %></div>
+              <div class="id" hidden><%= task['id'] %></div>
+              <div class="delete-task"><a href="#" class="glyphicon glyphicon-trash">de</a></div>
+            </li>
+          <% end %>
+        </ul>
+        <footer><a class="create_task_link" data-status="open" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
+      </div>
+      <div class="list">
+        <header>In Progress</header>
+        <ul>
+          <% @tasks['progress'].each do |task| %>
+            <li><%= task['title'] %></li>
+          <% end %>
+        </ul>
+        <footer><a class="create_task_link" data-status="progress" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
+      </div>
+      <div class="list">
+        <header>Done</header>
+        <ul>
+          <% @tasks['close'].each do |task| %>
+            <li><%= task['title'] %></li>
+          <% end %>
+        </ul>
+        <footer><a class="create_task_link" data-status="close" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
+      </div>
     </div>
   </div>
 </div>
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -63,16 +79,19 @@
               <label for="description">Description</label>
               <textarea id="description" class="form-control" rows="3"></textarea>
             </div>
+            <div class="hidden">
+              <input type="hidden" id="status" value="" hidden>
+            </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button id="create_task" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

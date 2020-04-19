@@ -92,3 +92,25 @@ body {
 div {
     display: block;
 }
+
+#flash_holder {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+.alert {
+    margin: 0 auto;
+    box-shadow: 0 25px 59px 15px rgba(0,0,0,0.6);
+    width: 20%;
+}
+
+.delete-task {
+    text-align: right;
+}
+
+.title {
+    float: left;
+}
