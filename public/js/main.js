@@ -32,7 +32,17 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $('.delete-task').click(function(){
+    $('.delete-task a').click(function(){
         let id = $(this).parent().prev('.id').text();
+        $.ajax({
+            url: `/update/${id}`,
+            type: 'DELETE',
+            success: function(data, textStatus, jqXHR) {
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(errorThrown)
+            }
+        })
     })
 })
