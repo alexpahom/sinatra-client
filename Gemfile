@@ -9,5 +9,6 @@ gem 'pry'
 gem 'sassc'
 gem 'sinatra', '~> 2.0.8.1'
 gem 'sinatra-contrib', '~> 2.0.8.1'
+gem 'sinatra-flash', '~> 0.3.0'
 
 # gem "rails"

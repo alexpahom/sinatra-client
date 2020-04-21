@@ -13,7 +13,7 @@ $(document).ready(function () {
         $.ajax({
             url: '/create',
             type: 'POST',
-            dataType: 'json',
+            dataType: 'script',
             data: JSON.stringify({
                 status: status,
                 title: title,
@@ -21,9 +21,9 @@ $(document).ready(function () {
                 rank: 1 // TODO: stub
             }),
             contentType: 'application/json',
-            success: function(data, textStatus, jqXHR) {
-                $('#exampleModalLong').close();
-            },
+            // success: function(data, textStatus, jqXHR) {
+            //     $('#exampleModalLong').close();
+            // },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert(errorThrown)
             }

@@ -1,0 +1,5 @@
+$('#exampleModalLong').modal('toggle');
+
+$('#flash_holder').show().html('<%= erb :_flash %>').delay(2000).fadeOut(2000, function () {
+  $(this).children();
+});

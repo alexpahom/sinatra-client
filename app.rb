@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'httparty'
 require 'pry'
+require 'sinatra/flash'
 API_HOST = 'http://localhost:4568'
+enable :sessions
 
 helpers do
   def alert_class_for(flash_type)
@@ -12,6 +14,7 @@ helpers do
         notice: 'alert-info'
     }[flash_type.to_sym] || flash_type.to_s
   end
+
 
   def json_params
     begin
@@ -44,10 +47,14 @@ post '/create' do
   if response.success?
     status 201
     body response.body
+    flash[:success] = 'Task Created!'
   else
     status response.code
     body response['message']
+    flash[:error] = response['message']
   end
+  content_type 'text/javascript'
+  erb :'create.js'
 end
 
 put '/update/:id' do |id|
