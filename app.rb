@@ -2,10 +2,21 @@ require 'sinatra'
 require 'httparty'
 require 'pry'
 require 'sinatra/flash'
+
 API_HOST = 'http://localhost:4568'
 enable :sessions
 
 helpers do
+  JS_ESCAPE_MAP = {
+      '\\'    => '\\\\',
+      "</"    => '<\/',
+      "\r\n"  => '\n',
+      "\n"    => '\n',
+      "\r"    => '\n',
+      '"'     => '\\"',
+      "'"     => "\\'"
+  }
+
   def alert_class_for(flash_type)
     {
         success: 'alert-success',
@@ -23,6 +34,16 @@ helpers do
       halt 400, { message:'Invalid JSON' }.to_json
     end
   end
+
+  def escape_javascript(javascript)
+    javascript = javascript.to_s
+    if javascript.empty?
+      ""
+    else
+      javascript.gsub(/(\\|<\/|\r\n|\342\200\250|\342\200\251|[\n\r"'])/u) { |match| JS_ESCAPE_MAP[match] }
+    end
+  end
+  alias_method :j, :escape_javascript
 end
 
 get '/' do
@@ -44,13 +65,12 @@ post '/create' do
       rank: params['rank']
   }.to_json
   response = HTTParty.post("#{API_HOST}/api/v1/todos", body: payload)
+  @task = JSON.parse(response.body)
   if response.success?
     status 201
-    body response.body
-    flash[:success] = 'Task Created!'
+    flash.now[:success] = 'Task Created!'
   else
     status response.code
-    body response['message']
     flash[:error] = response['message']
   end
   content_type 'text/javascript'

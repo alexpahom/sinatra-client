@@ -20,13 +20,7 @@ $(document).ready(function () {
                 description: description,
                 rank: 1 // TODO: stub
             }),
-            contentType: 'application/json',
-            // success: function(data, textStatus, jqXHR) {
-            //     $('#exampleModalLong').close();
-            // },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert(errorThrown)
-            }
+            contentType: 'application/json'
         });
     });
 });

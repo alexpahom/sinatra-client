@@ -23,7 +23,7 @@
     <div class="lists">
       <div class="list">
         <header>To Do</header>
-        <ul>
+        <ul data-status="open">
           <% @tasks['open'].each do |task| %>
             <li>
               <div class="title"><%= task['title'] %></div>
@@ -38,7 +38,7 @@
       </div>
       <div class="list">
         <header>In Progress</header>
-        <ul>
+        <ul data-status="progress">
           <% @tasks['progress'].each do |task| %>
             <li><%= task['title'] %></li>
           <% end %>
@@ -47,7 +47,7 @@
       </div>
       <div class="list">
         <header>Done</header>
-        <ul>
+        <ul data-status="close">
           <% @tasks['close'].each do |task| %>
             <li><%= task['title'] %></li>
           <% end %>
