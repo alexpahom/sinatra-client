@@ -71,7 +71,7 @@ post '/create' do
     flash.now[:success] = 'Task Created!'
   else
     status response.code
-    flash[:error] = response['message']
+    flash.now[:error] = response['message']
   end
   content_type 'text/javascript'
   erb :'create.js'
@@ -95,11 +95,15 @@ put '/update/:id' do |id|
 end
 
 delete '/update/:id' do |id|
+  @task_id = id
   response = HTTParty.delete("#{API_HOST}/api/v1/todos/#{id}")
   if response.success?
     status 204
+    flash.now[:success] = 'Deleted'
   else
     status response.status
-    body response.message
+    flash.now[:error] = response.message
   end
+  content_type 'text/javascript'
+  erb :'delete.js'
 end

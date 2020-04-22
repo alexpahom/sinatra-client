@@ -5,7 +5,7 @@ $('#flash_holder').show().html('<%= j erb :_flash %>').delay(2000).fadeOut(2000,
 });
 // TODO: handle if not saved
 <%# if @task.save %>
-  $('ul[data-status=<%= @task["status"] %>').append(
+  $('ul[data-status=<%= @task["status"] %>').append( // TODO: replace with partial
       '<li>' +
       '   <div class="title"><%= @task["title"] %></div>' +
       '   <div class="description" hidden><%= @task["description"] %></div>' +

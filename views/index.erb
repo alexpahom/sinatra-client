@@ -25,6 +25,7 @@
         <header>To Do</header>
         <ul data-status="open">
           <% @tasks['open'].each do |task| %>
+<!--         TODO:    replace with partial -->
             <li>
               <div class="title"><%= task['title'] %></div>
               <div class="description" hidden><%= task['description'] %></div>
