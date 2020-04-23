@@ -25,14 +25,7 @@
         <header>To Do</header>
         <ul data-status="open">
           <% @tasks['open'].each do |task| %>
-<!--         TODO:    replace with partial -->
-            <li>
-              <div class="title"><%= task['title'] %></div>
-              <div class="description" hidden><%= task['description'] %></div>
-              <div class="rank" hidden><%= task['rank'] %></div>
-              <div class="id" hidden><%= task['id'] %></div>
-              <div class="delete-task"><a href="#" class="fa fa-trash-alt"></a></div>
-            </li>
+            <%= erb :'_task_cell', locals: { task: task } %>
           <% end %>
         </ul>
         <footer><a class="create_task_link" data-status="open" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>

@@ -1,18 +1,13 @@
 $('#exampleModalLong').modal('toggle');
 
-$('#flash_holder').show().html('<%= j erb :_flash %>').delay(2000).fadeOut(2000, function () {
-  $(this).children();
+$('#flash_holder').show().append('<%= j erb :_flash %>').delay(2000).fadeOut(2000, function () {
+  $(this).children().remove();
 });
 // TODO: handle if not saved
 <%# if @task.save %>
-  $('ul[data-status=<%= @task["status"] %>').append( // TODO: replace with partial
-      '<li>' +
-      '   <div class="title"><%= @task["title"] %></div>' +
-      '   <div class="description" hidden><%= @task["description"] %></div>' +
-      '   <div class="rank" hidden><%= @task["rank"] %></div>' +
-      '   <div class="id" hidden><%= @task["id"] %></div>' +
-      '   <div class="delete-task"><a href="#" class="fa fa-trash-alt"></a></div>' +
-      '</li>'
-  ).find('li').last()
+  $('ul[data-status=<%= @task["status"] %>')
+      .append('<%= j erb :'_task_cell', locals: { task: @task } %>')
+      .find('li')
+      .last()
       .attr('style', 'display:none').slideDown(700);
 <%# end %>

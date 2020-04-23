@@ -25,18 +25,12 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    $('.delete-task a').click(function(){
+$(function () {
+    $(document).on('click', '.delete-task a', function(){
         let id = $(this).parent().prev('.id').text();
         $.ajax({
             url: `/update/${id}`,
-            type: 'DELETE',
-            success: function(data, textStatus, jqXHR) {
-
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert(errorThrown)
-            }
-        })
-    })
-})
+            type: 'DELETE'
+        });
+    });
+});

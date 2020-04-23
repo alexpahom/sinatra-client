@@ -98,7 +98,7 @@ delete '/update/:id' do |id|
   @task_id = id
   response = HTTParty.delete("#{API_HOST}/api/v1/todos/#{id}")
   if response.success?
-    status 204
+    status 200
     flash.now[:success] = 'Deleted'
   else
     status response.status
