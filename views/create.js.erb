@@ -3,11 +3,11 @@ $('#exampleModalLong').modal('toggle');
 $('#flash_holder').show().append('<%= j erb :_flash %>').delay(2000).fadeOut(2000, function () {
   $(this).children().remove();
 });
-// TODO: handle if not saved
-<%# if @task.save %>
+
+<% if @result %>
   $('ul[data-status=<%= @task["status"] %>')
       .append('<%= j erb :'_task_cell', locals: { task: @task } %>')
       .find('li')
       .last()
       .attr('style', 'display:none').slideDown(700);
-<%# end %>
+<% end %>

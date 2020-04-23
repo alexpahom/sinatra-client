@@ -26,13 +26,19 @@ helpers do
     }[flash_type.to_sym] || flash_type.to_s
   end
 
+  def parse_json(params = request.body.read)
+    JSON.parse(params)
+  rescue
+    halt 400, { message:'Invalid JSON format' }.to_json
+  end
 
-  def json_params
-    begin
-      JSON.parse(request.body.read)
-    rescue
-      halt 400, { message:'Invalid JSON' }.to_json
-    end
+  def build_payload(params)
+    {
+        title: params['title'],
+        description: params['description'],
+        status: params['status'],
+        rank: params['rank']
+    }.to_json
   end
 
   def escape_javascript(javascript)
@@ -49,7 +55,7 @@ end
 get '/' do
   response = HTTParty.get("#{API_HOST}/api/v1/todos")
   if response.success?
-    @tasks = JSON.parse response.body
+    @tasks = parse_json(response.body)
   else
     status response.code
   end
@@ -57,16 +63,10 @@ get '/' do
 end
 
 post '/create' do
-  params = json_params
-  payload = {
-      title: params['title'],
-      description: params['description'],
-      status: params['status'],
-      rank: params['rank']
-  }.to_json
+  payload = build_payload(parse_json)
   response = HTTParty.post("#{API_HOST}/api/v1/todos", body: payload)
-  @task = JSON.parse(response.body)
-  if response.success?
+  @task = parse_json(response.body)
+  if(@result = response.success?)
     status 201
     flash.now[:success] = 'Task Created!'
   else
@@ -78,13 +78,7 @@ post '/create' do
 end
 
 put '/update/:id' do |id|
-  params = json_params
-  payload = {
-      title: params['title'],
-      description: params['description'],
-      status: params['status'],
-      rank: params['rank']
-  }
+  payload = build_payload(parse_json)
   response = HTTParty.put("#{API_HOST}/api/v1/todos/#{id}", body: payload)
   if response.success?
     status 200
@@ -97,7 +91,7 @@ end
 delete '/update/:id' do |id|
   @task_id = id
   response = HTTParty.delete("#{API_HOST}/api/v1/todos/#{id}")
-  if response.success?
+  if(@result = response.success?)
     status 200
     flash.now[:success] = 'Deleted'
   else
