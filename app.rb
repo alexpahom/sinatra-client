@@ -38,7 +38,7 @@ helpers do
         description: params['description'],
         status: params['status'],
         rank: params['rank']
-    }.to_json
+    }.select { |_k, v| v }.to_json
   end
 
   def escape_javascript(javascript)
@@ -77,15 +77,17 @@ post '/create' do
   erb :'create.js'
 end
 
-put '/update/:id' do |id|
+patch '/update/:id' do |id|
   payload = build_payload(parse_json)
-  response = HTTParty.put("#{API_HOST}/api/v1/todos/#{id}", body: payload)
-  if response.success?
+  response = HTTParty.patch("#{API_HOST}/api/v1/todos/#{id}", body: payload)
+  if(@result = response.success?)
     status 200
   else
-    status response.status
-    body response.message
+    status response.code
+    flash.now[:error] = response['message']
   end
+  content_type 'text/javascript'
+  erb :'update.js'
 end
 
 delete '/update/:id' do |id|

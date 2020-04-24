@@ -7,8 +7,8 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="/js/main.js"></script>
   <title>Todo PAD</title>
 </head>
@@ -34,7 +34,7 @@
         <header>In Progress</header>
         <ul data-status="progress">
           <% @tasks['progress'].each do |task| %>
-            <li><%= task['title'] %></li>
+            <%= erb :'_task_cell', locals: { task: task } %>
           <% end %>
         </ul>
         <footer><a class="create_task_link" data-status="progress" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
@@ -43,7 +43,7 @@
         <header>Done</header>
         <ul data-status="close">
           <% @tasks['close'].each do |task| %>
-            <li><%= task['title'] %></li>
+            <%= erb :'_task_cell', locals: { task: task } %>
           <% end %>
         </ul>
         <footer><a class="create_task_link" data-status="close" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>

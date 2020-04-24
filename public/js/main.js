@@ -34,3 +34,34 @@ $(function () {
         });
     });
 });
+
+$(function () {
+    $('ul').sortable({
+        connectWith: 'ul',
+        stop: function (event, ui) {
+            ui.item.css({
+                'transform': 'rotate(0deg)',
+                'box-shadow': 'none'
+            });
+            const id = ui.item.find('.id').text();
+            const status = ui.item.closest('ul').attr('data-status');
+            console.log('Status: ' + status + ' ID: ' + id);
+            $.ajax({
+                url: `/update/${id}`,
+                type: 'PATCH',
+                dataType: 'script',
+                data: JSON.stringify({
+                    status: status
+                }),
+                contentType: 'application/json'
+            });
+        },
+        start: function (event, ui) {
+            ui.item.css({
+                'transform': 'rotate(3deg)',
+                // 'transition-duration': '0.5s',
+                'box-shadow': '0 5px 9px 5px rgba(140,140,140,0.6)'
+            });
+        }
+    })
+})
