@@ -77,14 +77,10 @@ body {
     color: #888;
 }
 
-.list ul li:not(:last-child) {
-    margin-bottom: 10px;
-}
-
 .list ul li {
     background-color: #fff;
     padding: 10px;
-
+    margin-bottom: 10px;
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -113,4 +109,12 @@ div {
 
 .title {
     float: left;
+}
+
+.task-cell {
+    transition: box-shadow .3s;
+}
+
+.task-cell:hover {
+    box-shadow: 0 5px 5px  rgba(140, 140, 140, 0.6);
 }

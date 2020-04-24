@@ -59,15 +59,35 @@ $(function () {
         start: function (event, ui) {
             ui.item.css({
                 'transform': 'rotate(3deg)',
-                // 'transition-duration': '0.5s',
+                'transition-duration': '1s',
+                'transition-property': 'transform',
                 'box-shadow': '0 5px 9px 5px rgba(140,140,140,0.6)'
             });
         },
         stop: function (event, ui) {
             ui.item.css({
                 'transform': 'rotate(0deg)',
-                'box-shadow': 'none'
+                'box-shadow': ''
             });
         }
+    })
+})
+
+$(function () {
+    $('.task-cell').click(function () {
+        const title = $(this).find('.title').text();
+        console.log(title);
+        const desc = $(this).find('.description').text();
+        $('#title').val(title);
+        $('#description').text(desc);
+        $('.modal-title').text('Update Task')
+    });
+});
+
+$(function () {
+    $('#exampleModalLong').on('hidden.bs.modal', function () {
+        $('#title').val('');
+        $('#description').text('');
+        $('.modal-title').text('Create Task')
     })
 })

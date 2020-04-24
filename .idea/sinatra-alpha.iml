@@ -70,5 +70,7 @@
     <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.10, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.6, RVM: ruby-2.6.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.2.2, RVM: ruby-2.6.3) [gem]" level="application" />
+    <orderEntry type="library" name="all" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
   </component>
 </module>
