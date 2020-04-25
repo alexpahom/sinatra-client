@@ -1,3 +1,20 @@
+$eye-icon-width: 26px
+$trash-icon-width: 22px
+$appbar-height: 40px
+$navbar-height: 50px
+$list-width: 350px
+$gap: 10px
+$scrollbar-thickness: 17px
+$list-header-height: 36px
+$list-footer-height: 36px
+// Misc
+$list-border-radius: 5px
+$card-border-radius: 3px
+// Colors
+$board-bg-color: #0079bf
+$appbar-bg-color: #0067a3
+$list-bg-color: #e2e4e6
+
 body
   margin: 0
   font-family: 'Roboto'
@@ -7,20 +24,23 @@ body
 .ui
   height: 100vh
   display: grid
-  grid-template-rows: 40px 50px 1fr
-  background-color: #0079bf
+  grid-template-rows: $appbar-height $navbar-height 1fr
+  background-color: $board-bg-color
   color: #eee
 
 .navbar
-  padding-left: 10px
+  padding-left: $gap
   display: flex
-  align-items: center
+  align-content: center
 
-  .app
-    background-color: #0067a3
+  &.app
+    background-color: $appbar-bg-color
     font-size: 1.5rem
+    text-align: center
+    display: inline-block
+    margin: auto 0
 
-  .board
+  &.board
     font-size: 1.1rem
 
 .lists
@@ -29,47 +49,47 @@ body
 
   > *
     flex: 0 0 auto
-    margin-left: 10px
+    margin-left: $gap
 
   &::after
     content: ''
-    flex: 0 0 10px
+    flex: 0 0 $gap
 
 .list
-  width: 340px
-  height: calc(100% - 10px - 17px)
+  width: $list-width
+  height: calc(100% - #{$gap} - #{$scrollbar-thickness})
+
+  > *
+    background-color: $list-bg-color
+    color: #333
+    padding: 0 $gap
+
+  header
+    line-height: $list-header-height
+    font-size: 16px
+    font-weight: bold
+    border-top-left-radius: $list-border-radius
+    border-top-right-radius: $list-border-radius
+
+  footer
+    line-height: $list-footer-height
+    border-bottom-left-radius: $list-border-radius
+    border-bottom-right-radius: $list-border-radius
+    color: #888
 
   ul
     list-style: none
     margin: 0
-    max-height: calc(100% - 36px - 36px)
+    max-height: calc(100% - #{$list-header-height} - #{$list-footer-height})
     overflow-y: auto
 
-  > *
-    background-color: #e2e4e6
-    color: #333
-    padding: 0 10px
-
-.list
-  header
-    line-height: 36px
-    font-size: 16px
-    font-weight: bold
-    border-top-left-radius: 5px
-    border-top-right-radius: 5px
-
-  footer
-    line-height: 36px
-    border-bottom-left-radius: 5px
-    border-bottom-right-radius: 5px
-    color: #888
-
-  ul li
-    background-color: #fff
-    padding: 10px
-    margin-bottom: 10px
-    border-radius: 3px
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+    li
+      background-color: #fff
+      padding: $gap
+      margin-bottom: $gap
+      border-radius: $card-border-radius
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+      overflow: hidden
 
 div
   display: block
@@ -86,11 +106,16 @@ div
   box-shadow: 0 25px 59px 15px rgba(0,0,0,0.6)
   width: 20%
 
-.delete-task
-  text-align: right
+.show-task, .delete-task
+  float: left
+  margin: 0 4px
+
+  a:hover
+    text-decoration: none
 
 .title
   float: left
+  width: calc(100% - #{$trash-icon-width} - #{$eye-icon-width})
 
 .task-cell
   transition: box-shadow .3s

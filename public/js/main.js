@@ -74,10 +74,10 @@ $(function () {
 })
 
 $(function () {
-    $('.task-cell').click(function () {
-        const title = $(this).find('.title').text();
+    $('.show-task').click(function () {
+        const title = $(this).closest('li').find('.title').text();
         console.log(title);
-        const desc = $(this).find('.description').text();
+        const desc = $(this).closest('li').find('.description').text();
         $('#title').val(title);
         $('#description').text(desc);
         $('.modal-title').text('Update Task')
