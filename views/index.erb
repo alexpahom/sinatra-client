@@ -25,10 +25,10 @@
         <header>To Do</header>
         <ul data-status="open">
           <% @tasks['open'].each do |task| %>
-            <%= erb :'_task_cell', locals: { task: task } %>
+            <%= erb :_task_cell, locals: { task: task } %>
           <% end %>
         </ul>
-        <footer><a class="create_task_link" data-status="open" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
+        <footer><a class="create_task_link" data-status="open" data-toggle="modal" data-target="#bsModal" href="#">Add a task</a></footer>
       </div>
       <div class="list">
         <header>In Progress</header>
@@ -37,7 +37,7 @@
             <%= erb :'_task_cell', locals: { task: task } %>
           <% end %>
         </ul>
-        <footer><a class="create_task_link" data-status="progress" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
+        <footer><a class="create_task_link" data-status="progress" data-toggle="modal" data-target="#bsModal" href="#">Add a task</a></footer>
       </div>
       <div class="list">
         <header>Done</header>
@@ -46,7 +46,7 @@
             <%= erb :'_task_cell', locals: { task: task } %>
           <% end %>
         </ul>
-        <footer><a class="create_task_link" data-status="close" data-toggle="modal" data-target="#exampleModalLong" href="#">Add a task</a></footer>
+        <footer><a class="create_task_link" data-status="close" data-toggle="modal" data-target="#bsModal" href="#">Add a task</a></footer>
       </div>
     </div>
   </div>

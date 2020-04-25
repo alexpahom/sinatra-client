@@ -35,7 +35,7 @@ helpers do
   def parse_json(params = request.body.read)
     JSON.parse(params)
   rescue
-    halt 400, { message:'Invalid JSON format' }.to_json
+    halt 400, { message: 'Invalid JSON format' }.to_json
   end
 
   def build_payload(params)
@@ -44,7 +44,7 @@ helpers do
         description: params['description'],
         status: params['status'],
         rank: params['rank']
-    }.select { |_k, v| v }.to_json
+    }.select { |_k, v| v }
   end
 
   def escape_javascript(javascript)
@@ -75,7 +75,7 @@ end
 
 post '/create' do
   payload = build_payload(parse_json)
-  response = HTTParty.post("#{API_HOST}/api/v1/todos", body: payload)
+  response = HTTParty.post("#{API_HOST}/api/v1/todos", body: payload.to_json)
   @task = parse_json(response.body)
   if(@result = response.success?)
     status 201
@@ -90,9 +90,13 @@ end
 
 patch '/update/:id' do |id|
   payload = build_payload(parse_json)
-  response = HTTParty.patch("#{API_HOST}/api/v1/todos/#{id}", body: payload)
+  response = HTTParty.patch("#{API_HOST}/api/v1/todos/#{id}", body: payload.to_json)
   if(@result = response.success?)
     status 200
+    unless payload[:status]
+      @task = parse_json(response.body)
+      flash.now[:success] = 'Saved'
+    end
   else
     status response.code
     flash.now[:error] = response['message']
