@@ -77,7 +77,7 @@ $(function () {
     $('#update_task').click(function () {
         const id = $('#id').val();
         const title = $('#title').val();
-        const desc = $('#description').text();
+        const desc = $('#description').val();
         $.ajax({
             url: `/update/${id}`,
             type: 'PATCH',
