@@ -58,7 +58,7 @@ $(function () {
         },
         start: function (event, ui) {
             ui.item.css({
-                'transform': 'rotate(3deg)',
+                'transform': 'rotate(3deg) scale(1.05)',
                 'transition-duration': '1s',
                 'transition-property': 'transform',
                 'box-shadow': '0 5px 9px 5px rgba(140,140,140,0.6)'
@@ -66,7 +66,7 @@ $(function () {
         },
         stop: function (event, ui) {
             ui.item.css({
-                'transform': 'rotate(0deg)',
+                'transform': '',
                 'box-shadow': ''
             });
         }
