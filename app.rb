@@ -1,10 +1,16 @@
+require 'compass'
 require 'sinatra'
+require 'haml'
 require 'httparty'
 require 'pry'
 require 'sinatra/flash'
 
 API_HOST = 'http://localhost:4568'
 enable :sessions
+
+configure do
+  Compass.add_project_configuration(File.join(Sinatra::Application.root, 'compass.config'))
+end
 
 helpers do
   JS_ESCAPE_MAP = {
@@ -50,6 +56,11 @@ helpers do
     end
   end
   alias_method :j, :escape_javascript
+end
+
+get '/css/:name.css' do
+  content_type 'text/css'
+  sass :"#{params[:name]}"
 end
 
 get '/' do

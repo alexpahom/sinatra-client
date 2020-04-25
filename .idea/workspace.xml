@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27f711e1-ff76-429e-a262-a934c4652a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/_modal.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compass.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main2.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/_base.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sinatra-alpha.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sinatra-alpha.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/_task_cell.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/_task_cell.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +43,7 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="ERB File" />
+        <option value="Sass File" />
       </list>
     </option>
   </component>
@@ -62,6 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="Sass" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -100,10 +103,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581166592517" />
-    <state x="525" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580755991396">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="700" y="303" width="638" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587812361146">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="525" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1580755991396" />
+    <state x="700" y="303" width="638" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1587812361146" />
+    <state x="741" y="27" width="485" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587811493175">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="741" y="27" width="485" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1587811493175" />
     <state x="167" y="125" width="1653" height="855" key="DiffContextDialog" timestamp="1587672169341">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
