@@ -1,9 +1,12 @@
+// Hides the modal
 $('#bsModal').modal('toggle');
 
+// Renders flash message if any and fades out
 $('#flash_holder').show().append('<%= j haml :_flash %>').delay(2000).fadeOut(2000, function () {
   $(this).children().remove();
 });
 
+// Appends new task if created
 <% if @result %>
   $('ul[data-status=<%= @task["status"] %>')
       .append('<%= j haml :'_task_cell', locals: { task: @task } %>')

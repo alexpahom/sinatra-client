@@ -1,6 +1,9 @@
+// Renders flash message if any and fades out
 $('#flash_holder').show().append('<%= j haml :_flash %>').delay(2000).fadeOut(2000, function () {
     $(this).children().remove();
 });
+
+// Deletes the task from UI if deleted
 <% if @result %>
     $('.id:contains("<%= @task_id %>")').closest('li').slideUp(600, function () {
         $(this).remove()

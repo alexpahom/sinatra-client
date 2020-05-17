@@ -20,14 +20,16 @@
         %nav{ class: 'navbar app' } Что мы будем делать сегодня?
         %nav{ class: 'navbar board' }
         .lists
+          -# Render all the available columns and its tasks
           - { 'To Do': 'open', 'In Progress': 'progress', 'Done': 'close' }.each do |sense, status|
             .list
               %header= sense
               %ul{ 'data-status': status }
                 - @tasks[status].each do |task|
+                  -# Invoke partial task_cell
                   = haml :_task_cell, locals: { task: task }
               %footer
                 %a.create_task_link{ 'data-status': status, 'data-toggle': 'modal',
                   'data-target': '#bsModal', href: '#' } Add a task
-
+    -# Invoke partial modal
     = haml :_modal
