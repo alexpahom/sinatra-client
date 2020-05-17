@@ -1,0 +1,9 @@
+%li.task-cell
+  .title= task['title']
+  .description{ hidden: true }= task['description']
+  .rank{ hidden: true }= task['rank']
+  .id{ hidden: true }= task['id']
+  .show-task
+    %a{ href: '#', class: 'fa fa-eye', 'data-toggle': 'modal', 'data-target': '#bsModal' }
+  .delete-task
+    %a{ class: 'fa fa-trash-alt', href: '#' }

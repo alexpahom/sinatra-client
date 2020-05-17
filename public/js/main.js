@@ -1,3 +1,4 @@
+// When user clicks 'add new task', column status is injected into modal
 $(document).ready(function() {
     $('.create_task_link').click(function() {
         let status = $(this).attr('data-status')
@@ -5,6 +6,7 @@ $(document).ready(function() {
     });
 });
 
+// POST request for task creation
 $(document).ready(function () {
     $('button#create_task').click(function(){
         let status = $('input#status').val();
@@ -25,9 +27,10 @@ $(document).ready(function () {
     });
 });
 
+// DELETE request for task deletion
 $(function () {
     $(document).on('click', '.delete-task a', function(){
-        let id = $(this).parent().prev('.id').text();
+        let id = $(this).parent().prevAll('.id').text();
         $.ajax({
             url: `/update/${id}`,
             type: 'DELETE'
@@ -35,7 +38,9 @@ $(function () {
     });
 });
 
+// Drag-n-drop processing
 $(function () {
+    // PATCH when dropped correctly
     $('ul').sortable({
         connectWith: 'ul',
         update: function (event, ui) {
@@ -56,6 +61,7 @@ $(function () {
                 }
             });
         },
+        // When dragging is started
         start: function (event, ui) {
             ui.item.css({
                 'transform': 'rotate(3deg) scale(1.05)',
@@ -64,6 +70,7 @@ $(function () {
                 'box-shadow': '0 5px 9px 5px rgba(140,140,140,0.6)'
             });
         },
+        // When dragging is completed
         stop: function (event, ui) {
             ui.item.css({
                 'transform': '',
@@ -73,6 +80,7 @@ $(function () {
     })
 })
 
+// PATCH request for task editing
 $(function () {
     $('#update_task').click(function () {
         const id = $('#id').val();
@@ -94,6 +102,7 @@ $(function () {
     });
 });
 
+// Shows modal for task editing and populates the values
 $(function () {
     $('.show-task').click(function () {
         const root = $(this).closest('li');
@@ -109,6 +118,8 @@ $(function () {
     });
 });
 
+// As bootstrap modal works for both creation and update,
+// here buttons and other text is reset
 $(function () {
     $('.create_task_link').on('click', function () {
         $('#title').val('');

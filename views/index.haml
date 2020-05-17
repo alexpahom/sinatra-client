@@ -1,0 +1,48 @@
+%html
+  %head
+    %meta{ charset: 'UTF-8' }
+      %link{ href: '/css/_base.css', rel: 'stylesheet', type: 'text/css' }
+      %link{ href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap', rel: 'stylesheet' }
+      %link{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+        integrity: 'sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin: 'anonymous' }
+      %link{ rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.7.0/css/all.css',
+        integrity: 'sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ', crossorigin: 'anonymous' }
+      %script{ src: 'https://code.jquery.com/jquery-3.5.0.js',
+        integrity: 'sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=', crossorigin: 'anonymous' }
+      %script{ src: 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js' }
+      %script{ src: '/js/main.js' }
+      %title Todo PAD
+  %body
+    .content
+      #flash_holder
+        = haml :_flash
+      .ui
+        %nav{ class: 'navbar app' } Что мы будем делать сегодня?
+        %nav{ class: 'navbar board' }
+        .lists
+          .list
+            %header To Do
+            %ul{ 'data-status': 'open' }
+              - @tasks['open'].each do |task|
+                = haml :_task_cell, locals: { task: task }
+            %footer
+              %a.create_task_link{ 'data-status': 'open', 'data-toggle': 'modal',
+                'data-target': '#bsModal', href: '#' } Add a task
+          .list
+            %header In Progress
+            %ul{ 'data-status': 'progress' }
+              - @tasks['progress'].each do |task|
+                = haml :_task_cell, locals: { task: task }
+            %footer
+              %a.create_task_link{ 'data-status': 'progress', 'data-toggle': 'modal',
+                'data-target': '#bsModal', href: '#' } Add a task
+          .list
+            %header Done
+            %ul{ 'data-status': 'close' }
+              - @tasks['close'].each do |task|
+                = haml :_task_cell, locals: { task: task }
+            %footer
+              %a.create_task_link{ 'data-status': 'close', 'data-toggle': 'modal',
+                'data-target': '#bsModal', href: '#' } Add a task
+
+    = haml :_modal

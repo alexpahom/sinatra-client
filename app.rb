@@ -70,7 +70,7 @@ get '/' do
   else
     status response.code
   end
-  erb :index
+  haml :index
 end
 
 post '/create' do

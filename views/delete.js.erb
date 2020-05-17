@@ -1,4 +1,4 @@
-$('#flash_holder').show().append('<%= j erb :_flash %>').delay(2000).fadeOut(2000, function () {
+$('#flash_holder').show().append('<%= j haml :_flash %>').delay(2000).fadeOut(2000, function () {
     $(this).children().remove();
 });
 <% if @result %>

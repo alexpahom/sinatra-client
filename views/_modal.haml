@@ -1,0 +1,29 @@
+#bsModal{ class: 'modal fade', tabindex: -1, role: 'dialog', 'aria-labelledby': 'bsModalTitle', 'aria-hidden': true }
+  .modal-dialog{ role: 'document' }
+    .modal-content
+      .modal-header
+        %h5.modal-title#bsModalTitle Create Task
+        %button.close{ type: 'button', 'data-dismiss': 'modal', 'aria-label': 'close' }
+          %span{ 'aria-hidden': true } &times;
+
+      .modal-body
+        %form
+          .form-group
+            %label{ for: 'title' } Title
+            %input#title.form-control{ type: 'text' }
+          .form-group
+            %label{ for: 'description' } Description
+            %textarea#description.form-control{ rows: 3 }
+          .hidden
+            %input#status{ type: 'hidden', value: '', hidden: true }
+            %input#id{ type: 'hidden', value: '', hidden: true }
+
+      .modal-footer
+        %button{ type: 'button', class: 'btn btn-secondary', 'data-dismiss': 'modal' } Close
+        %button#create_task{ type: 'button', class: 'btn btn-primary' }Create Task
+        %button#update_task{ type: 'button', class: 'btn btn-primary' }Update Task
+%script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js',
+  integrity: 'sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin: 'anonymous' }
+
+%script{ src: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
+  integrity: 'sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin: 'anonymous' }
