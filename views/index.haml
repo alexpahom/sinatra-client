@@ -20,29 +20,14 @@
         %nav{ class: 'navbar app' } Что мы будем делать сегодня?
         %nav{ class: 'navbar board' }
         .lists
-          .list
-            %header To Do
-            %ul{ 'data-status': 'open' }
-              - @tasks['open'].each do |task|
-                = haml :_task_cell, locals: { task: task }
-            %footer
-              %a.create_task_link{ 'data-status': 'open', 'data-toggle': 'modal',
-                'data-target': '#bsModal', href: '#' } Add a task
-          .list
-            %header In Progress
-            %ul{ 'data-status': 'progress' }
-              - @tasks['progress'].each do |task|
-                = haml :_task_cell, locals: { task: task }
-            %footer
-              %a.create_task_link{ 'data-status': 'progress', 'data-toggle': 'modal',
-                'data-target': '#bsModal', href: '#' } Add a task
-          .list
-            %header Done
-            %ul{ 'data-status': 'close' }
-              - @tasks['close'].each do |task|
-                = haml :_task_cell, locals: { task: task }
-            %footer
-              %a.create_task_link{ 'data-status': 'close', 'data-toggle': 'modal',
-                'data-target': '#bsModal', href: '#' } Add a task
+          - { 'To Do': 'open', 'In Progress': 'progress', 'Done': 'close' }.each do |sense, status|
+            .list
+              %header= sense
+              %ul{ 'data-status': status }
+                - @tasks[status].each do |task|
+                  = haml :_task_cell, locals: { task: task }
+              %footer
+                %a.create_task_link{ 'data-status': status, 'data-toggle': 'modal',
+                  'data-target': '#bsModal', href: '#' } Add a task
 
     = haml :_modal
