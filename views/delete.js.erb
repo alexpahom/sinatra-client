@@ -5,7 +5,7 @@ $('#flash_holder').show().append('<%= j haml :_flash %>').delay(2000).fadeOut(20
 
 // Deletes the task from UI if deleted
 <% if @result %>
-    $('.id:contains("<%= @task_id %>")').closest('li').slideUp(600, function () {
+    $('li[data-id="<%= @task_id %>"]').slideUp(600, function () {
         $(this).remove()
     });
 <% end %>

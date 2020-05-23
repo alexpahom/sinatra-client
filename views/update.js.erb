@@ -5,5 +5,5 @@ $('#flash_holder').show().append('<%= j haml :_flash %>').delay(2000).fadeOut(20
 
 // Makes corresponding UI changes
 <% if @task %>
-    $('div.id:contains("<%= @task['id'] %>")').closest('li').replaceWith('<%= j haml :_task_cell, locals: { task: @task } %>');
+    $('li[data-id="<%= @task['id'] %>"]').replaceWith('<%= j haml :_task_cell, locals: { task: @task } %>');
 <% end %>

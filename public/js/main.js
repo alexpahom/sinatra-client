@@ -19,8 +19,7 @@ $(document).ready(function () {
             data: JSON.stringify({
                 status: status,
                 title: title,
-                description: description,
-                rank: 1 // TODO: stub
+                description: description
             }),
             contentType: 'application/json'
         });
@@ -30,7 +29,7 @@ $(document).ready(function () {
 // DELETE request for task deletion
 $(function () {
     $(document).on('click', '.delete-task a', function(){
-        let id = $(this).parent().prevAll('.id').text();
+        let id = $(this).parent().parent().attr('data-id');
         $.ajax({
             url: `/update/${id}`,
             type: 'DELETE'
@@ -44,8 +43,9 @@ $(function () {
     $('ul').sortable({
         connectWith: 'ul',
         update: function (event, ui) {
-            const id = ui.item.find('.id').text();
+            const id = ui.item.attr('data-id');
             const status = ui.item.closest('ul').attr('data-status');
+            const newRank = ui.item.index() + 1;
             console.log('Status: ' + status + ' ID: ' + id);
             if (ui.sender) return;
             $.ajax({
@@ -53,7 +53,8 @@ $(function () {
                 type: 'PATCH',
                 dataType: 'script',
                 data: JSON.stringify({
-                    status: status
+                    status: status,
+                    rank: newRank
                 }),
                 contentType: 'application/json',
                 error: function (xhr, status, errorMessage) {
@@ -104,11 +105,12 @@ $(function () {
 
 // Shows modal for task editing and populates the values
 $(function () {
-    $('.show-task').click(function () {
+    $('div.list').on('click', 'li.task-cell .show-task', function () {
+        console.log('show-task');
         const root = $(this).closest('li');
         const title = $(root).find('.title').text();
         const desc = $(root).find('.description').text();
-        const id = $(root).find('.id').text();
+        const id = $(root).attr('data-id')
         $('#title').val(title);
         $('#description').text(desc);
         $('#id').val(id);
