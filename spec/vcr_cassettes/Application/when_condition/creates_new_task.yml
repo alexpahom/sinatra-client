@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:4568/api/v1/todos
+    body:
+      encoding: UTF-8
+      string: '{"title":"New task","status":"open"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: 'Created '
+    headers:
+      Content-Type:
+      - application/json
+      Location:
+      - http://localhost:4568/api/v1/todos/60a6e76dced6193070238e04
+      Content-Length:
+      - '96'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - WEBrick/1.4.4 (Ruby/2.6.7/2021-04-05)
+      Date:
+      - Thu, 20 May 2021 22:49:17 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"60a6e76dced6193070238e04","title":"New task","description":null,"rank":4,"status":"open"}'
+  recorded_at: Thu, 20 May 2021 22:49:17 GMT
+recorded_with: VCR 6.0.0

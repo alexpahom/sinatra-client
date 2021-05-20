@@ -1,0 +1,78 @@
+{
+  "open": [
+    {
+      "id": "60a6d325ced6193070238dfe",
+      "title": "Почитать инженерную графику",
+      "description": "курсовая - нейронная сеть, ищи статьи",
+      "rank": 1,
+      "status": "open"
+    },
+    {
+      "id": "60a6d325ced6193070238dff",
+      "title": "Магаз",
+      "description": "Сметана, хлеб, бананы",
+      "rank": 2,
+      "status": "open"
+    },
+    {
+      "id": "60a6d325ced6193070238e00",
+      "title": "Новая задача",
+      "description": "",
+      "rank": 3,
+      "status": "open"
+    }
+  ],
+  "progress": [
+    {
+      "id": "60a6d325ced6193070238dfa",
+      "title": "Выбросить мусор",
+      "description": "ты сам все понял",
+      "rank": 1,
+      "status": "progress"
+    },
+    {
+      "id": "60a6d325ced6193070238dfb",
+      "title": "Купить рейлинги",
+      "description": "",
+      "rank": 2,
+      "status": "progress"
+    },
+    {
+      "id": "60a6d325ced6193070238dfc",
+      "title": "Глянуть в полки для рейлинга",
+      "description": "в материке дюже дорого",
+      "rank": 3,
+      "status": "progress"
+    },
+    {
+      "id": "60a6d325ced6193070238dfd",
+      "title": "Купи, наконец, весы",
+      "description": "только с нормальными батарейками, не с таблеткой\n",
+      "rank": 4,
+      "status": "progress"
+    }
+  ],
+  "close": [
+    {
+      "id": "60a6d325ced6193070238e01",
+      "title": "Зашить носки",
+      "description": "Нашел 5 дырок в новых носках",
+      "rank": 1,
+      "status": "close"
+    },
+    {
+      "id": "60a6d325ced6193070238e02",
+      "title": "Набросать шаблон для курсовой",
+      "description": "",
+      "rank": 2,
+      "status": "close"
+    },
+    {
+      "id": "60a6d325ced6193070238e03",
+      "title": "Починить порог",
+      "description": "Ходит ходуном, нужно просверлить новые дырки",
+      "rank": 3,
+      "status": "close"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:4568/api/v1/todos
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1654'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - WEBrick/1.4.4 (Ruby/2.6.7/2021-04-05)
+      Date:
+      - Thu, 20 May 2021 22:14:25 GMT
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJvcGVuIjpbeyJpZCI6IjYwYTZkMzI1Y2VkNjE5MzA3MDIzOGRmZSIsInRpdGxlIjoi0J/QvtGH0LjRgtCw0YLRjCDQuNC90LbQtdC90LXRgNC90YPRjiDQs9GA0LDRhNC40LrRgyIsImRlc2NyaXB0aW9uIjoi0LrRg9GA0YHQvtCy0LDRjyAtINC90LXQudGA0L7QvdC90LDRjyDRgdC10YLRjCwg0LjRidC4INGB0YLQsNGC0YzQuCIsInJhbmsiOjEsInN0YXR1cyI6Im9wZW4ifSx7ImlkIjoiNjBhNmQzMjVjZWQ2MTkzMDcwMjM4ZGZmIiwidGl0bGUiOiLQnNCw0LPQsNC3IiwiZGVzY3JpcHRpb24iOiLQodC80LXRgtCw0L3QsCwg0YXQu9C10LEsINCx0LDQvdCw0L3RiyIsInJhbmsiOjIsInN0YXR1cyI6Im9wZW4ifSx7ImlkIjoiNjBhNmQzMjVjZWQ2MTkzMDcwMjM4ZTAwIiwidGl0bGUiOiLQndC+0LLQsNGPINC30LDQtNCw0YfQsCIsImRlc2NyaXB0aW9uIjoiIiwicmFuayI6Mywic3RhdHVzIjoib3BlbiJ9XSwicHJvZ3Jlc3MiOlt7ImlkIjoiNjBhNmQzMjVjZWQ2MTkzMDcwMjM4ZGZhIiwidGl0bGUiOiLQktGL0LHRgNC+0YHQuNGC0Ywg0LzRg9GB0L7RgCIsImRlc2NyaXB0aW9uIjoi0YLRiyDRgdCw0Lwg0LLRgdC1INC/0L7QvdGP0LsiLCJyYW5rIjoxLCJzdGF0dXMiOiJwcm9ncmVzcyJ9LHsiaWQiOiI2MGE2ZDMyNWNlZDYxOTMwNzAyMzhkZmIiLCJ0aXRsZSI6ItCa0YPQv9C40YLRjCDRgNC10LnQu9C40L3Qs9C4IiwiZGVzY3JpcHRpb24iOiIiLCJyYW5rIjoyLCJzdGF0dXMiOiJwcm9ncmVzcyJ9LHsiaWQiOiI2MGE2ZDMyNWNlZDYxOTMwNzAyMzhkZmMiLCJ0aXRsZSI6ItCT0LvRj9C90YPRgtGMINCyINC/0L7Qu9C60Lgg0LTQu9GPINGA0LXQudC70LjQvdCz0LAiLCJkZXNjcmlwdGlvbiI6ItCyINC80LDRgtC10YDQuNC60LUg0LTRjtC20LUg0LTQvtGA0L7Qs9C+IiwicmFuayI6Mywic3RhdHVzIjoicHJvZ3Jlc3MifSx7ImlkIjoiNjBhNmQzMjVjZWQ2MTkzMDcwMjM4ZGZkIiwidGl0bGUiOiLQmtGD0L/QuCwg0L3QsNC60L7QvdC10YYsINCy0LXRgdGLIiwiZGVzY3JpcHRpb24iOiLRgtC+0LvRjNC60L4g0YEg0L3QvtGA0LzQsNC70YzQvdGL0LzQuCDQsdCw0YLQsNGA0LXQudC60LDQvNC4LCDQvdC1INGBINGC0LDQsdC70LXRgtC60L7QuVxuIiwicmFuayI6NCwic3RhdHVzIjoicHJvZ3Jlc3MifV0sImNsb3NlIjpbeyJpZCI6IjYwYTZkMzI1Y2VkNjE5MzA3MDIzOGUwMSIsInRpdGxlIjoi0JfQsNGI0LjRgtGMINC90L7RgdC60LgiLCJkZXNjcmlwdGlvbiI6ItCd0LDRiNC10LsgNSDQtNGL0YDQvtC6INCyINC90L7QstGL0YUg0L3QvtGB0LrQsNGFIiwicmFuayI6MSwic3RhdHVzIjoiY2xvc2UifSx7ImlkIjoiNjBhNmQzMjVjZWQ2MTkzMDcwMjM4ZTAyIiwidGl0bGUiOiLQndCw0LHRgNC+0YHQsNGC0Ywg0YjQsNCx0LvQvtC9INC00LvRjyDQutGD0YDRgdC+0LLQvtC5IiwiZGVzY3JpcHRpb24iOiIiLCJyYW5rIjoyLCJzdGF0dXMiOiJjbG9zZSJ9LHsiaWQiOiI2MGE2ZDMyNWNlZDYxOTMwNzAyMzhlMDMiLCJ0aXRsZSI6ItCf0L7Rh9C40L3QuNGC0Ywg0L/QvtGA0L7QsyIsImRlc2NyaXB0aW9uIjoi0KXQvtC00LjRgiDRhdC+0LTRg9C90L7QvCwg0L3Rg9C20L3QviDQv9GA0L7RgdCy0LXRgNC70LjRgtGMINC90L7QstGL0LUg0LTRi9GA0LrQuCIsInJhbmsiOjMsInN0YXR1cyI6ImNsb3NlIn1dfQ==
+  recorded_at: Thu, 20 May 2021 22:14:25 GMT
+recorded_with: VCR 6.0.0
