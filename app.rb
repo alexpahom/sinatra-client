@@ -1,5 +1,5 @@
 require 'compass'
-require 'sinatra'
+require 'sinatra/base'
 require 'haml'
 require 'httparty'
 require 'pry'
@@ -122,4 +122,6 @@ class Application < Sinatra::Base
     content_type 'text/javascript'
     erb :'delete.js'
   end
+
+  run!
 end
