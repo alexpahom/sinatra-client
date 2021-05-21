@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27f711e1-ff76-429e-a262-a934c4652a1f" name="Default Changelist" comment="add VCR + Rspec support">
+    <list default="true" id="27f711e1-ff76-429e-a262-a934c4652a1f" name="Default Changelist" comment="hotfix run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.sass" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/create.js.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +303,8 @@
       <workItem from="1621446137151" duration="2721000" />
       <workItem from="1621526328041" duration="3060000" />
       <workItem from="1621533479750" duration="9058000" />
-      <workItem from="1621578487634" duration="1934000" />
+      <workItem from="1621578487634" duration="11676000" />
+      <workItem from="1621625190263" duration="609000" />
     </task>
     <task id="LOCAL-00001" summary="add VCR + Rspec support">
       <created>1621551018174</created>
@@ -310,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621551018174</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="hotfix run">
+      <created>1621599986553</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621599986553</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +340,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add VCR + Rspec support" />
-    <option name="LAST_COMMIT_MESSAGE" value="add VCR + Rspec support" />
+    <MESSAGE value="hotfix run" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotfix run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

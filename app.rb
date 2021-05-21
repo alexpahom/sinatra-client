@@ -85,8 +85,8 @@ class Application < Sinatra::Base
       status 201
       flash.now[:success] = 'Task Created!'
     else
-      status response.code
-      flash.now[:error] = response['message']
+      status 200
+      flash.now[:error] = response.first
     end
     content_type 'text/javascript'
     erb :'create.js'
@@ -102,8 +102,8 @@ class Application < Sinatra::Base
         flash.now[:success] = 'Saved'
       end
     else
-      status response.code
-      flash.now[:error] = response['message']
+      status response.status
+      flash.now[:error] = response.first
     end
     content_type 'text/javascript'
     erb :'update.js'
@@ -113,12 +113,11 @@ class Application < Sinatra::Base
     @task_id = id
     response = HTTParty.delete("#{API_HOST}/api/v1/todos/#{id}")
     if(@result = response.success?)
-      status 200
       flash.now[:success] = 'Deleted'
     else
-      status response.status
-      flash.now[:error] = response.message
+      flash.now[:error] = response.first
     end
+    status 200
     content_type 'text/javascript'
     erb :'delete.js'
   end
